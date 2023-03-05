@@ -404,7 +404,7 @@ ui_init()
     gtk_combo_box_set_focus_on_click(GTK_COMBO_BOX(ui.c_agc), FALSE);
     g_signal_connect(G_OBJECT(ui.c_agc), "changed", G_CALLBACK(tuner_set_agc), NULL);
 
-    ui.x_rf = gtk_check_button_new_with_label("RF+");
+    ui.x_rf = gtk_check_button_new_with_label("6dB");
     gtk_box_pack_start(GTK_BOX(ui.box_left_settings1), ui.x_rf, FALSE, FALSE, 0);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(ui.x_rf), conf.rfgain);
     g_signal_connect(ui.x_rf, "button-press-event", G_CALLBACK(ui_toggle_gain), NULL);
@@ -474,7 +474,7 @@ ui_init()
     gtk_combo_box_set_focus_on_click(GTK_COMBO_BOX(ui.c_bw), FALSE);
     g_signal_connect(G_OBJECT(ui.c_bw), "changed", G_CALLBACK(tuner_set_bandwidth), NULL);
 
-    ui.x_if = gtk_check_button_new_with_label("IF+");
+    ui.x_if = gtk_check_button_new_with_label("9dB");
     gtk_box_pack_start(GTK_BOX(ui.box_left_settings2), ui.x_if, FALSE, FALSE, 0);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(ui.x_if), conf.ifgain);
     g_signal_connect(ui.x_if, "button-press-event", G_CALLBACK(ui_toggle_gain), NULL);
