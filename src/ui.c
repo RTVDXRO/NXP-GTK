@@ -398,6 +398,7 @@ ui_init()
     gtk_combo_box_append_text(GTK_COMBO_BOX(ui.c_agc), "high");
     gtk_combo_box_append_text(GTK_COMBO_BOX(ui.c_agc), "medium");
     gtk_combo_box_append_text(GTK_COMBO_BOX(ui.c_agc), "low");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(ui.c_agc), "lowest");
     gtk_combo_box_set_active(GTK_COMBO_BOX(ui.c_agc), conf.agc);
     gtk_box_pack_start(GTK_BOX(ui.box_left_settings1), ui.c_agc, TRUE, TRUE, 0);
     gtk_combo_box_set_focus_on_click(GTK_COMBO_BOX(ui.c_agc), FALSE);
@@ -420,16 +421,17 @@ ui_init()
     gtk_combo_box_append_text(GTK_COMBO_BOX(ui.c_deemph), "50 us");
     gtk_combo_box_append_text(GTK_COMBO_BOX(ui.c_deemph), "75 us");
     gtk_combo_box_append_text(GTK_COMBO_BOX(ui.c_deemph), "0 us");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(ui.c_deemph), "MPX ");
     gtk_box_pack_start(GTK_BOX(ui.box_left_settings2), ui.c_deemph, TRUE, TRUE, 0);
     gtk_combo_box_set_active(GTK_COMBO_BOX(ui.c_deemph), conf.deemphasis);
     gtk_combo_box_set_focus_on_click(GTK_COMBO_BOX(ui.c_deemph), FALSE);
     g_signal_connect(G_OBJECT(ui.c_deemph), "changed", G_CALLBACK(tuner_set_deemphasis), NULL);
 
     ui.ant = gtk_list_store_new(2, G_TYPE_STRING, G_TYPE_BOOLEAN);
-    gtk_list_store_insert_with_values(ui.ant, NULL, -1, 0, "Ant A", 1, (conf.ant_count>=1), -1);
-    gtk_list_store_insert_with_values(ui.ant, NULL, -1, 0, "Ant B", 1, (conf.ant_count>=2), -1);
-    gtk_list_store_insert_with_values(ui.ant, NULL, -1, 0, "Ant C", 1, (conf.ant_count>=3), -1);
-    gtk_list_store_insert_with_values(ui.ant, NULL, -1, 0, "Ant D", 1, (conf.ant_count>=4), -1);
+    gtk_list_store_insert_with_values(ui.ant, NULL, -1, 0, "SDT  ", 1, (conf.ant_count>=1), -1);
+    gtk_list_store_insert_with_values(ui.ant, NULL, -1, 0, "iMS  ", 1, (conf.ant_count>=2), -1);
+    gtk_list_store_insert_with_values(ui.ant, NULL, -1, 0, "EQ   ", 1, (conf.ant_count>=3), -1);
+    gtk_list_store_insert_with_values(ui.ant, NULL, -1, 0, "Both ", 1, (conf.ant_count>=4), -1);
     GtkTreeModel *filter = gtk_tree_model_filter_new(GTK_TREE_MODEL(ui.ant), NULL);
     gtk_tree_model_filter_set_visible_column(GTK_TREE_MODEL_FILTER(filter), 1);
 
