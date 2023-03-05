@@ -1,8 +1,8 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
-Name=XDR-GTK
-Comment=User interface for XDR-F1HD tuner
+Name=NXP-GTK
+Comment=User interface for NXP-TEF668X tuner
 Icon=xdr-gtk
 Exec=xdr-gtk
 Terminal=false
