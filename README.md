@@ -1,7 +1,7 @@
-XDR-GTK
+NXP-GTK
 =======
 
-User interface for XDR-F1HD tuner with XDR-I2C modification.
+User interface for NXP-TEF668X tuner with Arduino-I2C controller
 
 ![Screenshot](/xdr-gtk.png?raw=true)
 
